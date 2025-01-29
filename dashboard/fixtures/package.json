@@ -5,7 +5,7 @@
     "fields": {
       "content": "Complete project report",
       "datetime": "2023-10-15T09:00:00Z",
-      "deadline": "2023-12-31T23:59:59Z",
+      "deadline": "2023-12-31",
       "is_done": false
     }
   },
@@ -25,7 +25,7 @@
     "fields": {
       "content": "Schedule team meeting",
       "datetime": "2023-10-17T14:00:00Z",
-      "deadline": "2023-10-20T12:00:00Z",
+      "deadline": "2023-10-20",
       "is_done": false
     }
   },
@@ -35,7 +35,7 @@
     "fields": {
       "content": "Prepare presentation",
       "datetime": "2023-10-18T16:45:00Z",
-      "deadline": "2023-10-25T17:00:00Z",
+      "deadline": "2023-10-25",
       "is_done": true
     }
   },
@@ -45,7 +45,7 @@
     "fields": {
       "content": "Call dentist",
       "datetime": "2023-10-19T08:15:00Z",
-      "deadline": "2023-11-01T09:00:00Z",
+      "deadline": "2023-11-01",
       "is_done": false
     }
   },
@@ -55,7 +55,7 @@
     "fields": {
       "content": "Renew gym membership",
       "datetime": "2023-10-20T11:20:00Z",
-      "deadline": "2023-12-01T00:00:00Z",
+      "deadline": "2023-12-01",
       "is_done": false
     }
   },
