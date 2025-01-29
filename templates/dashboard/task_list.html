@@ -26,7 +26,7 @@
             </h2>
           </form>
             <small>
-              {% for tag in task.tags.all %}tag.name
+              {% for tag in task.tags.all %}{{ tag.name }}
               {% endfor %}
               <a href="{% url 'dashboard:task-update' task.id %}">update</a>
               <a href="{% url 'dashboard:task-delete-confirm' task.id %}">delete</a>
