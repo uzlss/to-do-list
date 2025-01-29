@@ -1,5 +1,4 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
@@ -24,7 +23,6 @@ class TaskCreateView(generic.CreateView):
         return response
 
     success_url = reverse_lazy("dashboard:index")
-
 
 
 class TaskUpdateView(generic.UpdateView):
@@ -58,6 +56,7 @@ class TaskToggleDoneView(generic.View):
 class TagListView(generic.ListView):
     model = Tag
     paginate_by = 5
+
 
 class TagCreateView(generic.CreateView):
     model = Tag
