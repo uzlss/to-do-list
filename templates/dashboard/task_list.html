@@ -1,15 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <ul>
-  {% for task in task_list %}
-    <li>{{ task }}
-      <form method="post" action="{% url 'dashboard:task-toggle-done' task.id %}">
-        {% csrf_token %}
-        <button type="submit">{{ task.is_done }}</button>
-      </form></li>
-  {% empty %}
-    no tasks found
-  {% endfor  %}
-  </ul>
+
+  <h1>
+    To-do list
+    <a href="{% url 'dashboard:task-create' %}" class="btn btn-primary link-to-page">
+      Create task
+    </a>
+  </h1>
+  {% if task_list %}
+      <ul class="list-group list-group-flush">
+
+        {% for task in task_list %}
+        <li class="list-group-item">
+          <form action="{% url 'dashboard:task-toggle-done' task.id %}">
+          {% csrf_token %}
+              <h2>{{ task.content }}
+              {% if task.is_done %}
+                <span style="color: red">Not done</span>
+                <input class="btn btn-lg btn-success link-to-page" type="submit" value="Complete">
+            {% else %}
+              <span style="color: green">Done</span>
+              <input class="btn btn-lg btn-secondary link-to-page" type="submit" value="Undo">
+            {% endif %}
+            </h2>
+            <small>
+              {% for tag in task.tags.all %}tag.name
+              {% endfor %}
+              <a href="{% url 'dashboard:task-update' task.id %}">update</a>
+              <a href="{% url 'dashboard:task-delete-confirm' task.id %}">delete</a>
+
+            </small>
+          </form>
+        </li>
+
+
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no cars in taxi</p>
+  {% endif %}
 {% endblock %}

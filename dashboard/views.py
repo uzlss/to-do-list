@@ -57,7 +57,7 @@ class TaskToggleDoneView(generic.View):
 
 class TagListView(generic.ListView):
     model = Tag
-
+    paginate_by = 5
 
 class TagCreateView(generic.CreateView):
     model = Tag
