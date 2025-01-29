@@ -4,7 +4,8 @@ from dashboard.views import (
     HomePageView,
     TaskCreateView,
     TaskUpdateView,
-    TaskDeleteView
+    TaskDeleteView,
+    TaskToggleDoneView
 )
 
 app_name = "dashboard"
@@ -15,5 +16,6 @@ urlpatterns = [
     path("tasks/create/", TaskCreateView.as_view(), name="task-create"),
     path("tasks/<int:pk>/update/", TaskUpdateView.as_view(), name="task-update"),
     path("tasks/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete-confirm"),
+    path("tasks/<int:pk>/toggle_done", TaskToggleDoneView.as_view(), name="task-toggle-done"),
 
 ]

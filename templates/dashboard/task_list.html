@@ -3,7 +3,11 @@
 {% block content %}
     <ul>
   {% for task in task_list %}
-    <li>{{ task }}</li>
+    <li>{{ task }}
+      <form method="post" action="{% url 'dashboard:task-toggle-done' task.id %}">
+        {% csrf_token %}
+        <button type="submit">{{ task.is_done }}</button>
+      </form></li>
   {% empty %}
     no tasks found
   {% endfor  %}

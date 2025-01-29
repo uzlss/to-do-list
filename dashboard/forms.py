@@ -17,6 +17,7 @@ class TaskCreateForm(forms.ModelForm):
                 'type': 'date',
             }
         ),
+        required=False,
     )
 
     class Meta:

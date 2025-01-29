@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -42,3 +43,13 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("dashboard:index")
+
+
+class TaskToggleDoneView(generic.View):
+    def post(self, request, pk, *args, **kwargs):
+        task = Task.objects.get(pk=pk)
+        task.is_done = not task.is_done
+        task.save()
+        return HttpResponseRedirect(
+            reverse_lazy("dashboard:index")
+        )
