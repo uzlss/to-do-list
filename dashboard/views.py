@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from dashboard.forms import TaskCreateForm, TaskUpdateForm
-from dashboard.models import Task
+from dashboard.models import Task, Tag
 
 
 class HomePageView(generic.ListView):
@@ -53,3 +53,24 @@ class TaskToggleDoneView(generic.View):
         return HttpResponseRedirect(
             reverse_lazy("dashboard:index")
         )
+
+
+class TagListView(generic.ListView):
+    model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = ("name", )
+    success_url = reverse_lazy("dashboard:tag-list")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = ("name", )
+    success_url = reverse_lazy("dashboard:tag-list")
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    success_url = reverse_lazy("dashboard:tag-list")
